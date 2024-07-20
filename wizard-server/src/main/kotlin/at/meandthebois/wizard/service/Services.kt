@@ -1,5 +1,9 @@
-package at.meandthebois.wizard
+package at.meandthebois.wizard.service
 
+import at.meandthebois.wizard.model.GameDTORequest
+import at.meandthebois.wizard.model.GameDTOResponse
+import at.meandthebois.wizard.persistence.model.Game
+import at.meandthebois.wizard.persistence.GameRepository
 import org.springframework.stereotype.Service
 
 @Service

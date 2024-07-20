@@ -1,5 +1,8 @@
-package at.meandthebois.wizard
+package at.meandthebois.wizard.web
 
+import at.meandthebois.wizard.model.GameDTORequest
+import at.meandthebois.wizard.model.GameDTOResponse
+import at.meandthebois.wizard.service.GameService
 import org.springframework.web.bind.annotation.*
 
 @RestController

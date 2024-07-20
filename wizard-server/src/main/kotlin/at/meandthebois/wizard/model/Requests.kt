@@ -1,4 +1,4 @@
-package at.meandthebois.wizard
+package at.meandthebois.wizard.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDate

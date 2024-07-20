@@ -1,4 +1,4 @@
-package at.meandthebois.wizard
+package at.meandthebois.wizard.configuration.db
 
 import javax.sql.DataSource
 import org.springframework.beans.factory.annotation.Autowired
