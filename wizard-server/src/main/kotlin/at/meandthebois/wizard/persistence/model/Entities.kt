@@ -1,4 +1,4 @@
-package at.meandthebois.wizard
+package at.meandthebois.wizard.persistence.model
 
 import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
@@ -35,9 +35,9 @@ class TurnKey(
 
 @Entity
 class Turn(
-        @EmbeddedId var id: TurnKey,
-        @ManyToOne @MapsId("gameId") @JoinColumn(name = "game_id") var game: Game,
-        @ManyToOne @MapsId("playerId") @JoinColumn(name = "player_id") var player: Player,
-        var guess: UInt,
-        var scoreDiff: Int
+    @EmbeddedId var id: TurnKey,
+    @ManyToOne @MapsId("gameId") @JoinColumn(name = "game_id") var game: Game,
+    @ManyToOne @MapsId("playerId") @JoinColumn(name = "player_id") var player: Player,
+    var guess: UInt,
+    var scoreDiff: Int
 )
