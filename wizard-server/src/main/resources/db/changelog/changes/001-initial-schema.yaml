@@ -1,0 +1,66 @@
+databaseChangeLog:
+    - changeSet:
+          id: "1"
+          author: 424ever
+          changes:
+              - createTable:
+                    tableName: game
+                    columns:
+                        - column:
+                              name: id
+                              type: INT
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
+                        - column:
+                              name: date
+                              type: TEXT
+              - createTable:
+                    tableName: player
+                    columns:
+                        - column:
+                              name: id
+                              type: INT
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
+                        - column:
+                              name: name
+                              type: TEXT
+                              constraints:
+                                  nullable: false
+              - createTable:
+                    tableName: turn
+                    columns:
+                        - column:
+                              name: game_id
+                              type: INT
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
+                                  foreignKeyName: fk_turn_game_id
+                                  references: game(id)
+                        - column:
+                              name: player_id
+                              type: INT
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
+                                  foreignKeyName: fk_turn_player_id
+                                  references: player(id)
+                        - column:
+                              name: turn_no
+                              type: INT
+                              constraints:
+                                  primaryKey: true
+                                  nullable: false
+                        - column:
+                              name: guess
+                              type: INT
+                              constraints:
+                                  nullable: false
+                        - column:
+                              name: score_diff
+                              type: INT
+                              constraints:
+                                  nullable: false

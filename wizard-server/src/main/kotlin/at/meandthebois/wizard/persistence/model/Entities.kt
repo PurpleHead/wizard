@@ -14,30 +14,26 @@ import java.time.LocalDate
 
 @Entity
 class Player(
-        @Id @GeneratedValue var id: Long? = null,
+        @Id var id: Long? = null,
         var name: String,
-        @OneToMany var turns: Set<Turn>
 )
 
 @Entity
 class Game(
-        @Id @GeneratedValue var id: Long? = null,
+        @Id var id: Long? = null,
         var date: LocalDate,
-        @OneToMany var turns: Set<Turn>
 )
 
 @Embeddable
 class TurnKey(
         @Column(name = "game_id") var gameId: Long? = null,
         @Column(name = "player_id") var playerId: Long? = null,
-        var turnNo: Long? = null
+        @Column(name = "turn_no") var turnNo: Long? = null
 )
 
 @Entity
 class Turn(
     @EmbeddedId var id: TurnKey,
-    @ManyToOne @MapsId("gameId") @JoinColumn(name = "game_id") var game: Game,
-    @ManyToOne @MapsId("playerId") @JoinColumn(name = "player_id") var player: Player,
     var guess: UInt,
-    var scoreDiff: Int
+    @Column(name = "score_diff") var scoreDiff: Int
 )
