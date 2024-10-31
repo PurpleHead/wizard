@@ -1,0 +1,45 @@
+.home-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.z {
+  position: absolute !important;
+}
+
+.z1 {
+  z-index: 0;
+  filter: blur(2.5px);
+}
+
+.z2 {
+  z-index: 1;
+  filter: blur(2px);
+}
+
+.z4 {
+  z-index: 3;
+}
+
+.float1 {
+  animation: float infinite 15s ease-in-out;
+}
+
+.float2 {
+  animation: float infinite 10s ease-in-out;
+}
+
+.float3 {
+  animation: float infinite 8s ease-in-out;
+}
+
+.float4 {
+  animation: float infinite 5s ease-in-out;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(10px)
+  }
+}
