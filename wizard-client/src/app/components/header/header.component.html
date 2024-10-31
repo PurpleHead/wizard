@@ -1,0 +1,13 @@
+<div class="header-wrapper header-background">
+  <div class="title-wrapper">
+    <img src="wizard_icon.png">
+    <h1>Wizard Scorekeeper</h1>
+  </div>
+  <div class="items-wrapper">
+    @for (item of HEADER_ITEMS; track item.url) {
+      <h2 class="item">
+        {{ item.title }}
+      </h2>
+    }
+  </div>
+</div>

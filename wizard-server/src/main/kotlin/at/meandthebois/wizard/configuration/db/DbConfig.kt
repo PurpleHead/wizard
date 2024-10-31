@@ -1,5 +1,6 @@
 package at.meandthebois.wizard.configuration.db
 
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
 import javax.sql.DataSource
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,7 +12,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource
 class DbConfig {
     @Bean
     fun dataSource(dataSourceProperties: DataSourceProperties): DataSource {
-        var dataSource: DriverManagerDataSource = DriverManagerDataSource()
+        var dataSource = DriverManagerDataSource()
 
         dataSource.setDriverClassName(dataSourceProperties.driverClassName)
         dataSource.url = dataSourceProperties.url

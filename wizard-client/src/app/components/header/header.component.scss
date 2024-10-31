@@ -1,0 +1,50 @@
+@import '../../../styles';
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+.header-wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  color: $color-white;
+  padding: 2svh 5svw;
+
+  .title-wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2svw;
+    flex-wrap: nowrap;
+    text-align: center;
+
+    h1 {
+      font-size: 5svh;
+    }
+  }
+
+  .items-wrapper {
+    display: flex;
+    gap: 40px;
+
+    .item {
+      cursor: pointer;
+      font-size: 3svh;
+    }
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.header-background {
+  background: linear-gradient(180deg,rgba(34, 47, 77, 1) 62%, rgba(34, 47, 77, 0.81) 84%, rgba(34, 47, 77, 0.09) 100%);
+}
