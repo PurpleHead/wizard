@@ -1,0 +1,9 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: 100svw;
+  background-size: cover;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%), url("/bg.jpg") no-repeat center center fixed;
+}
