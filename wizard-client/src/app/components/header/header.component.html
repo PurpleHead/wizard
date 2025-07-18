@@ -5,7 +5,10 @@
   </div>
   <div class="items-wrapper">
     @for (item of HEADER_ITEMS; track item.url) {
-      <h2 class="item">
+      <h2 class="item"
+          [class.item-active]="item.active"
+          (click)="onItemSelect(item.url)"
+      >
         {{ item.title }}
       </h2>
     }

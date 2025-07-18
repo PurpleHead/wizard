@@ -1,0 +1,18 @@
+<div class="new-game-component">
+  <div class="card card-xl new-game-card">
+    <h1>Start a new game</h1>
+
+    <div class="player-list">
+      @for (player of players; track player; let idx = $index) {
+        <div>
+          <input class="input-text" type="text" [(ngModel)]="player.name">
+          <button class="button button-secondary" (click)="removePlayer(idx)">Remove</button>
+        </div>
+      }
+    </div>
+
+    <input class="input-text" #addPlayerInput type="text" placeholder="Player name">
+    <button class="button button-primary" (click)="addPlayer()">Add player</button>
+    <button class="button button-primary" [disabled]="players.length < 3">Start game</button>
+  </div>
+</div>

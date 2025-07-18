@@ -1,12 +1,6 @@
 @import '../../../styles';
 
-h1 {
-  margin: 0;
-}
-
-h2 {
-  margin: 0;
-}
+$color-active: #1f2b47;
 
 .header-wrapper {
   display: flex;
@@ -36,6 +30,16 @@ h2 {
     .item {
       cursor: pointer;
       font-size: 3svh;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .item:hover {
+      color: $color-white-hover;
+    }
+
+    .item-active {
+      background-color: $color-active;
     }
   }
 

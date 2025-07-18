@@ -1,0 +1,28 @@
+@import '../../../styles';
+
+.new-game-component {
+  display: flex;
+  justify-content: center;
+
+  .new-game-card {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .player-list {
+      display: flex;
+      flex-flow: column;
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-xl {
+    width: 80svw;
+  }
+}
