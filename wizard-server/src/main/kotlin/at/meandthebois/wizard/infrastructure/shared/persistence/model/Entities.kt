@@ -19,17 +19,17 @@ class GameEntity(
 
     var date: LocalDate,
 
-    @OneToMany(mappedBy = "game_id")
-    @OrderColumn("id.turn_no")
+    @OneToMany(mappedBy = "id.gameId")
+    @OrderColumn(name = "turn_no")
     var turns: List<Turn>? = mutableListOf(),
 
     @ManyToMany
     @JoinTable(
         name = "game_player",
-        joinColumns = [ JoinColumn("game_id") ],
-        inverseJoinColumns = [ JoinColumn("player_id") ]
+        joinColumns = [JoinColumn(name = "game_id")],
+        inverseJoinColumns = [ JoinColumn(name = "player_id") ]
     )
-    @OrderColumn("seat_index")
+    @OrderColumn(name = "seat_index")
     var players: List<PlayerEntity>
 )
 
@@ -37,12 +37,12 @@ class GameEntity(
 class Turn(
     @EmbeddedId var id: TurnId,
     var guess: Int,
-    var scoreDiff: Int
+    @Column(name = "score_diff") var scoreDiff: Int
 )
 
 @Embeddable
 class TurnId (
-    var gameId: Long,
+    @Column(name = "game_id") var gameId: Long,
+    @Column(name = "turn_no") var turnNo: Int,
     @ManyToOne var player: PlayerEntity,
-    var turnNo: Int,
 )

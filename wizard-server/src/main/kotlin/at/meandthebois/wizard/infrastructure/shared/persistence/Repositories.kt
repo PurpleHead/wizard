@@ -4,8 +4,6 @@ import at.meandthebois.wizard.infrastructure.shared.persistence.model.GameEntity
 import at.meandthebois.wizard.infrastructure.shared.persistence.model.PlayerEntity
 import org.springframework.data.repository.CrudRepository
 
-interface PlayerRepository : CrudRepository<PlayerEntity, Int> {
-    fun findAllById(ids: List<Long>): List<PlayerEntity>
-}
+interface PlayerRepository : CrudRepository<PlayerEntity, Long>
 
-interface GameRepository : CrudRepository<GameEntity, Int>
+interface GameRepository : CrudRepository<GameEntity, Long>

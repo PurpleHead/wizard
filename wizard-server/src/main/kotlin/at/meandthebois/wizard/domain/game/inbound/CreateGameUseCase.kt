@@ -1,6 +1,6 @@
 package at.meandthebois.wizard.domain.game.inbound
 
-import at.meandthebois.wizard.domain.game.exception.MissingPlayersException
+import at.meandthebois.wizard.domain.game.exception.GameCreateException
 import at.meandthebois.wizard.domain.game.model.CreateGameModel
 import at.meandthebois.wizard.domain.game.outbound.CreateGamePort
 import at.meandthebois.wizard.domain.game.outbound.PlayersExistPort
@@ -19,7 +19,10 @@ class CreateGameUseCase(
     fun createGame(playerIds: List<Long>): Long {
         val gameDate = LocalDate.now()
         if (!playersExistPort.checkIfPlayersExist(playerIds)) {
-            throw MissingPlayersException(message = "Failed to create game. One or more of the provided playerIds do not exist.")
+            throw GameCreateException(message = "Failed to create game. One or more of the provided playerIds do not exist.")
+        }
+        if (playerIds.size < 3) {
+            throw GameCreateException(message = "Failed to create game. At least three players are required.")
         }
         return createGamePort.createGame(CreateGameModel( playerIds, gameDate ))
     }
