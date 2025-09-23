@@ -1,6 +1,6 @@
 package at.meandthebois.wizard.web
 
-import at.meandthebois.wizard.domain.game.exception.MissingPlayersException
+import at.meandthebois.wizard.domain.game.exception.GameCreateException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 @ControllerAdvice
 class ErrorControllerAdvice {
 
-    @ExceptionHandler(MissingPlayersException::class)
-    fun handle(exception: MissingPlayersException): ResponseEntity<ErrorResponse> {
+    @ExceptionHandler(GameCreateException::class)
+    fun handle(exception: GameCreateException): ResponseEntity<ErrorResponse> {
         return ResponseEntity
             .status(exception.httpStatus)
             .body(ErrorResponse(exception.message))

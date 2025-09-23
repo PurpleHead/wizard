@@ -8,7 +8,7 @@ import at.meandthebois.wizard.infrastructure.shared.persistence.PlayerRepository
 class PlayersExistAdapter(val playerRepository: PlayerRepository) : PlayersExistPort {
 
     override fun checkIfPlayersExist(playerIds: List<Long>): Boolean {
-        return playerRepository.findAllById(playerIds).size == playerIds.size
+        return playerRepository.findAllById(playerIds).toList().size == playerIds.size
     }
 
 }

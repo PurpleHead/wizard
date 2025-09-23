@@ -17,7 +17,7 @@ class CreateGameAdapter(
         val players = playerRepository.findAllById(createGameModel.playerIds)
         val gameEntity = GameEntity(
             date = createGameModel.date,
-            players = players
+            players = players.toList()
         )
         return gameRepository.save(gameEntity).id!!
     }
