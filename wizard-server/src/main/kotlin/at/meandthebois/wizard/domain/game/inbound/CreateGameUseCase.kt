@@ -4,11 +4,11 @@ import at.meandthebois.wizard.domain.game.exception.GameCreateException
 import at.meandthebois.wizard.domain.game.model.CreateGameModel
 import at.meandthebois.wizard.domain.game.outbound.CreateGamePort
 import at.meandthebois.wizard.domain.game.outbound.PlayersExistPort
-import at.meandthebois.wizard.domain.shared.model.UseCase
+import at.meandthebois.wizard.domain.shared.UseCase
 import java.time.LocalDate
 
 /**
- * As a player I want to start a new game of wizard
+ * As a game-master I want to start a new game of wizard with given players
  * */
 @UseCase
 class CreateGameUseCase(

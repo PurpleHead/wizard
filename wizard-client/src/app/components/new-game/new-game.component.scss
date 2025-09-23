@@ -17,26 +17,22 @@
       display: flex;
       flex-flow: column;
       gap: 10px;
-      align-items: center;
+      align-items: start;
 
-      .index {
-        margin-right: 10px;
-        cursor: default;
-      }
-
-      .player-input {
-        width: 15svw;
+      .player {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }
 }
 
 .new-player-input-wrapper {
-  display: flex;
-  gap: 5px;
+  width: 100%;
 
   .new-player-input {
-    width: 18svw;
+    width: 100%;
   }
 }
 

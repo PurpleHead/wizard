@@ -4,17 +4,25 @@
 
     <div class="player-list">
       @for (player of players; track player; let idx = $index) {
-        <div>
-          <span class="font-xl index">#{{ $index + 1 }}</span>
-          <input class="input-text player-input" type="text" [(ngModel)]="player.name" placeholder="Player name">
+        <div class="player">
+          <span class="font-xl">{{ player.name }}</span>
           <button class="button button-secondary" (click)="removePlayer(idx)">Remove</button>
         </div>
       }
       <div class="new-player-input-wrapper">
-        <input class="input-text new-player-input" #addPlayerInput type="text" placeholder="Player name">
-        <button class="button button-primary" (click)="addPlayer()">Add player</button>
+        <input class="input-text new-player-input"
+               id="addPlayerInput"
+               #addPlayerInput
+               type="text"
+               placeholder="Player name"
+               [editable]="false"
+               [ngbTypeahead]="searchPlayer"
+               [container]="'body'"
+               [resultFormatter]="resultFormatter"
+               (selectItem)="addPlayer($event)"
+        >
       </div>
     </div>
-    <button class="button button-primary" [disabled]="players.length < 3">Start game</button>
+    <button (click)="startGame()" class="button button-primary" [disabled]="players.length < 3">Start game</button>
   </div>
 </div>

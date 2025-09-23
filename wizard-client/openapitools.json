@@ -1,0 +1,16 @@
+{
+  "generator-cli": {
+    "version": "7.0.1",
+    "generators": {
+      "angular-client": {
+        "generatorName": "typescript-angular",
+        "inputSpec": "openapi/wizard-openapi.json",
+        "output": "src/app/generated-sources/wizard-client",
+        "additionalProperties": {
+          "ngVersion": "16.0.0",
+          "withInterfaces": true
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-package at.meandthebois.wizard.domain.shared.model
+package at.meandthebois.wizard.domain.shared
 
 import org.springframework.stereotype.Component
 

@@ -14,6 +14,7 @@ class CreateGameAdapter(
 ) : CreateGamePort {
 
     override fun createGame(createGameModel: CreateGameModel): Long {
+        // TODO correctly order players
         val players = playerRepository.findAllById(createGameModel.playerIds)
         val gameEntity = GameEntity(
             date = createGameModel.date,
