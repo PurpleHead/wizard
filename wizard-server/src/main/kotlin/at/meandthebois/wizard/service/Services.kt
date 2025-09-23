@@ -1,25 +1,19 @@
 package at.meandthebois.wizard.service
 
-import at.meandthebois.wizard.model.*
-import at.meandthebois.wizard.persistence.model.Game
-import at.meandthebois.wizard.persistence.*
+import at.meandthebois.wizard.infrastructure.shared.persistence.GameRepository
+import at.meandthebois.wizard.infrastructure.shared.persistence.model.GameEntity
+import at.meandthebois.wizard.web.model.CreateGameDto
+import at.meandthebois.wizard.web.model.GameResponseDto
 import org.springframework.stereotype.Service
 
 @Service
 class GameService(var repository: GameRepository) {
-    fun createGame(game: GameDTORequest): GameDTOResponse {
-        val save = repository.save(Game(date = game.date))
-        return GameDTOResponse(id = save.id!!, date = save.date)
+    fun createGame(game: CreateGameDto): GameResponseDto {
+        val save = repository.save(GameEntity(date = game.date))
+        return GameResponseDto(id = save.id!!, date = save.date)
     }
 
-    fun getGames(): Iterable<GameDTOResponse> {
-        return repository.findAll().map { GameDTOResponse(it.id!!, it.date) }
-    }
-}
-
-@Service
-class PlayerService(var repository: PlayerRepository) {
-    fun getPlayers(): Iterable<PlayerDTOResponse> {
-        return repository.findAll().map { PlayerDTOResponse(it.id!!, it.name) }
+    fun getGames(): Iterable<GameResponseDto> {
+        return repository.findAll().map { GameResponseDto(it.id!!, it.date) }
     }
 }

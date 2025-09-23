@@ -1,0 +1,47 @@
+@import '../../../styles';
+
+.new-game-component {
+  display: flex;
+  justify-content: center;
+
+  .new-game-card {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .player-list {
+      display: flex;
+      flex-flow: column;
+      gap: 10px;
+      align-items: center;
+
+      .index {
+        margin-right: 10px;
+        cursor: default;
+      }
+
+      .player-input {
+        width: 15svw;
+      }
+    }
+  }
+}
+
+.new-player-input-wrapper {
+  display: flex;
+  gap: 5px;
+
+  .new-player-input {
+    width: 18svw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-xl {
+    width: 80svw;
+  }
+}
