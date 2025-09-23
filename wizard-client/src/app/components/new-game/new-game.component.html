@@ -5,14 +5,16 @@
     <div class="player-list">
       @for (player of players; track player; let idx = $index) {
         <div>
-          <input class="input-text" type="text" [(ngModel)]="player.name">
+          <span class="font-xl index">#{{ $index + 1 }}</span>
+          <input class="input-text player-input" type="text" [(ngModel)]="player.name" placeholder="Player name">
           <button class="button button-secondary" (click)="removePlayer(idx)">Remove</button>
         </div>
       }
+      <div class="new-player-input-wrapper">
+        <input class="input-text new-player-input" #addPlayerInput type="text" placeholder="Player name">
+        <button class="button button-primary" (click)="addPlayer()">Add player</button>
+      </div>
     </div>
-
-    <input class="input-text" #addPlayerInput type="text" placeholder="Player name">
-    <button class="button button-primary" (click)="addPlayer()">Add player</button>
     <button class="button button-primary" [disabled]="players.length < 3">Start game</button>
   </div>
 </div>

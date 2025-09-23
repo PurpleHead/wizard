@@ -3,7 +3,6 @@ import {PlayerCreateModel} from '../../shared/model/player-create-model';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'wizard-new-game',
   templateUrl: 'new-game.component.html',
   imports: [
     FormsModule

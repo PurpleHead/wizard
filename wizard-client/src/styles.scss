@@ -8,9 +8,13 @@ body {
   font-family: "Alkatra", system-ui;
 }
 
-h1, h2, h3 {
+h1, h2, h3, label, span {
   color: $color-white;
   margin: 0;
+}
+
+.font-xl {
+  font-size: 2svh;
 }
 
 .button {
@@ -49,6 +53,7 @@ h1, h2, h3 {
   border-radius: 10px;
   border: solid 2px $color-white;
   padding: 5px;
+  font-size: 1.5svh;
 }
 
 .card {

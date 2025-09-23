@@ -17,7 +17,26 @@
       display: flex;
       flex-flow: column;
       gap: 10px;
+      align-items: center;
+
+      .index {
+        margin-right: 10px;
+        cursor: default;
+      }
+
+      .player-input {
+        width: 15svw;
+      }
     }
+  }
+}
+
+.new-player-input-wrapper {
+  display: flex;
+  gap: 5px;
+
+  .new-player-input {
+    width: 18svw;
   }
 }
 
