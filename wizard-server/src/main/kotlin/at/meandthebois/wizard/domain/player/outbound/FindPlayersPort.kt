@@ -1,6 +1,6 @@
 package at.meandthebois.wizard.domain.player.outbound
 
-import at.meandthebois.wizard.domain.player.model.PlayerModel
+import at.meandthebois.wizard.domain.shared.model.PlayerModel
 
 interface FindPlayersPort {
 

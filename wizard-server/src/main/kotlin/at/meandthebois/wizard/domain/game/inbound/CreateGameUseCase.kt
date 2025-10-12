@@ -19,10 +19,10 @@ class CreateGameUseCase(
     fun createGame(playerIds: List<Long>): Long {
         val gameDate = LocalDate.now()
         if (!playersExistPort.checkIfPlayersExist(playerIds)) {
-            throw GameCreateException(message = "Failed to create game. One or more of the provided playerIds do not exist.")
+            throw GameCreateException("Failed to create game. One or more of the provided playerIds do not exist.")
         }
         if (playerIds.size < 3) {
-            throw GameCreateException(message = "Failed to create game. At least three players are required.")
+            throw GameCreateException("Failed to create game. At least three players are required.")
         }
         return createGamePort.createGame(CreateGameModel( playerIds, gameDate ))
     }

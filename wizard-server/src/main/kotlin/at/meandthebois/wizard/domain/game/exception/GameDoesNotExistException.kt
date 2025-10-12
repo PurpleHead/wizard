@@ -3,6 +3,6 @@ package at.meandthebois.wizard.domain.game.exception
 import at.meandthebois.wizard.domain.shared.exception.ClientFacingException
 import org.springframework.http.HttpStatus
 
-class GameCreateException(
+class GameDoesNotExistException(
     override val message: String
-) : ClientFacingException(httpStatus = HttpStatus.BAD_REQUEST, message)
+) : ClientFacingException(httpStatus = HttpStatus.NOT_FOUND, message)

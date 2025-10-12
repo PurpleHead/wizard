@@ -1,6 +1,6 @@
 package at.meandthebois.wizard.web
 
-import at.meandthebois.wizard.domain.game.exception.GameCreateException
+import at.meandthebois.wizard.domain.shared.exception.ClientFacingException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 @ControllerAdvice
 class ErrorControllerAdvice {
 
-    @ExceptionHandler(GameCreateException::class)
-    fun handle(exception: GameCreateException): ResponseEntity<ErrorResponse> {
+    @ExceptionHandler(ClientFacingException::class)
+    fun handle(exception: ClientFacingException): ResponseEntity<ErrorResponse> {
         return ResponseEntity
             .status(exception.httpStatus)
             .body(ErrorResponse(exception.message))

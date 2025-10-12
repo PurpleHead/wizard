@@ -31,9 +31,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/GameResponseDto"
+                  "$ref": "#/components/schemas/CreatedGameResponseDto"
                 }
               }
             }
@@ -61,9 +61,40 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/PlayerSearchResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/games/{id}": {
+      "get": {
+        "tags": [
+          "game-controller"
+        ],
+        "operationId": "getActiveGame",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveGameDto"
                 }
               }
             }
@@ -89,7 +120,7 @@
           "playerIds"
         ]
       },
-      "GameResponseDto": {
+      "CreatedGameResponseDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -129,6 +160,53 @@
         },
         "required": [
           "foundPlayers"
+        ]
+      },
+      "ActiveGameDto": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "turns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TurnDto"
+            }
+          },
+          "players": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerDto"
+            }
+          }
+        },
+        "required": [
+          "date",
+          "players",
+          "turns"
+        ]
+      },
+      "TurnDto": {
+        "type": "object",
+        "properties": {
+          "turnNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "player": {
+            "$ref": "#/components/schemas/PlayerDto"
+          },
+          "scoreDiff": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "player",
+          "scoreDiff",
+          "turnNumber"
         ]
       }
     }

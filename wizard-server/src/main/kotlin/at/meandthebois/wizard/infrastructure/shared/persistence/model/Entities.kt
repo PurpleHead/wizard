@@ -21,7 +21,7 @@ class GameEntity(
 
     @OneToMany(mappedBy = "id.gameId")
     @OrderColumn(name = "turn_no")
-    var turns: List<Turn>? = mutableListOf(),
+    var turns: List<TurnEntity>? = mutableListOf(),
 
     @ManyToMany
     @JoinTable(
@@ -34,7 +34,7 @@ class GameEntity(
 )
 
 @Entity(name = "turn")
-class Turn(
+class TurnEntity(
     @EmbeddedId var id: TurnId,
     var guess: Int,
     @Column(name = "score_diff") var scoreDiff: Int

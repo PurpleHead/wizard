@@ -3,6 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {NgbTypeahead, NgbTypeaheadSelectItemEvent} from '@ng-bootstrap/ng-bootstrap';
 import {debounceTime, distinctUntilChanged, filter, map, Observable, OperatorFunction, switchMap} from 'rxjs';
 import {GameControllerService, PlayerControllerService, PlayerDto} from '../../generated-sources/wizard-client';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: 'new-game.component.html',
@@ -16,6 +17,7 @@ export class NewGameComponent {
 
   private readonly playerService = inject(PlayerControllerService);
   private readonly gameService = inject(GameControllerService);
+  private readonly router = inject(Router);
 
   @ViewChild('addPlayerInput') addPlayerInput?: ElementRef<HTMLInputElement>;
   protected players: PlayerDto[] = [];
@@ -38,7 +40,7 @@ export class NewGameComponent {
     if (this.players.length >= 3) {
       this.gameService.createGame({
         playerIds: this.players.map(p => p.id)
-      }).subscribe(console.log);
+      }).subscribe((response) => this.router.navigate([`active-game/${response.id}`]));
     }
   }
 

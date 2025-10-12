@@ -1,4 +1,4 @@
-package at.meandthebois.wizard.domain.player.model
+package at.meandthebois.wizard.domain.shared.model
 
 data class PlayerModel(
     val id: Long,
